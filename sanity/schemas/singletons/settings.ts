@@ -14,7 +14,7 @@ export default defineType({
       title: 'Menu Item list',
       description: 'Links displayed on the header of your site.',
       type: 'array',
-      of: [
+      of: [ //property on array type field
         {
           title: 'Reference',
           type: 'reference',

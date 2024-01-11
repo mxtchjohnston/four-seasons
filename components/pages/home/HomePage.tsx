@@ -13,7 +13,7 @@ export interface HomePageProps {
 
 export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
   // Default to an empty object to allow previews on non-existent documents
-  const { overview = [], showcaseProjects = [], title = '' } = data ?? {}
+  const { overview = [], showcaseProjects = [], title = '' } = data ?? {} //nullish coalescing operator
 
   return (
     <div className="space-y-20">

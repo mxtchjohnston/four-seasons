@@ -1,13 +1,13 @@
 import { defineField } from 'sanity'
 
-import { DurationInput } from './DurationInput'
+import { DurationInput } from './DurationInput' // custom input component
 
 export default defineField({
-  type: 'object',
+  type: 'object', //undisplayable type in studio, exists within other objects
   name: 'duration',
   title: 'Duration',
-  components: {
-    input: DurationInput,
+  components: { // components are used to define custom input components for fields
+    input: DurationInput, 
   },
   fields: [
     defineField({
