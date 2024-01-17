@@ -16,6 +16,10 @@
   },
   "dependencies": {
     "@portabletext/react": "3.0.11",
+    "@radix-ui/react-hover-card": "^1.0.7",
+    "@radix-ui/react-label": "^2.0.2",
+    "@radix-ui/react-progress": "^1.0.3",
+    "@radix-ui/react-slot": "^1.0.2",
     "@sanity/demo": "1.0.2",
     "@sanity/image-url": "1.0.2",
     "@sanity/overlays": "2.3.2",
@@ -27,6 +31,7 @@
     "classnames": "2.5.1",
     "clsx": "^2.1.0",
     "date-fns": "2.30.0",
+    "embla-carousel-react": "^8.0.0-rc19",
     "jotai": "^2.6.1",
     "lucide-react": "^0.311.0",
     "next": "14.0.4",
