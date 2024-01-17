@@ -18,6 +18,7 @@ import milestone from '@/sanity/schemas/objects/milestone'
 import timeline from '@/sanity/schemas/objects/timeline'
 import home from '@/sanity/schemas/singletons/home'
 import settings from '@/sanity/schemas/singletons/settings'
+import carousel from './sanity/schemas/objects/carousel'
 
 const title =
   process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE ||
@@ -41,6 +42,7 @@ export default defineConfig({
       // Objects
       milestone,
       timeline,
+      carousel
     ],
   },
   plugins: [

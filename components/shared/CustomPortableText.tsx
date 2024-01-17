@@ -4,6 +4,7 @@ import { Image } from 'sanity'
 
 import ImageBox from '@/components/shared/ImageBox'
 import { TimelineSection } from '@/components/shared/TimelineSection'
+import AnyCarousel from './AnyCarousel'
 
 export function CustomPortableText({
   paragraphClasses,
@@ -55,6 +56,19 @@ export function CustomPortableText({
       timeline: ({ value }) => {
         const { items } = value || {}
         return <TimelineSection timelines={items} />
+      },
+      carousel: ({ value }) => {
+        const { items } = value || {}
+        return (<AnyCarousel>
+          {items?.map((item) => {
+            const { image } = item
+            return (
+              <div className="aspect-[16/9]">
+                <ImageBox image={image} alt={image?.alt} />
+              </div>
+            )
+          })}
+        </AnyCarousel>)
       },
     },
   }

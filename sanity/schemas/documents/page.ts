@@ -113,6 +113,11 @@ export default defineType({
             }),
           ],
         }),
+        defineField({
+          type: 'carousel',
+          name: 'carousel',
+          title: 'Carousel',
+        }),
       ],
     }),
   ],
