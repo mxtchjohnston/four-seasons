@@ -17,7 +17,8 @@ export default function Navbar(props: NavbarProps) {
   const slug = "";
   return (
     <div className="sticky top-0 z-10 flex flex-wrap items-center gap-x-5 bg-white/80 px-4 py-4 backdrop-blur md:px-16 md:py-5 lg:px-32">
-      <Image src={urlForOpenGraphImage(data.ogImage) ?? ''} alt="logo" width={200} height={100} />
+      {/* <Image src={urlForOpenGraphImage(data.ogImage) ?? ''} alt="logo" width={200} height={100} /> */}
+      <Image src={require('@/app/logo.svg')} alt="logo" width={100} height={100} />
       {menuItems &&
         menuItems.map((menuItem, key) => {
           const href = resolveHref(menuItem?._type, menuItem?.slug)

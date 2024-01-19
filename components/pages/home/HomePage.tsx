@@ -5,6 +5,8 @@ import { ProjectListItem } from '@/components/pages/home/ProjectListItem'
 import { Header } from '@/components/shared/Header'
 import { resolveHref } from '@/sanity/lib/utils'
 import type { HomePagePayload } from '@/types'
+import AnyCarousel from '@/components/shared/AnyCarousel'
+import ImageBox from '@/components/shared/ImageBox'
 
 export interface HomePageProps {
   data: HomePagePayload | null
@@ -17,6 +19,11 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
 
   return (
     <div className="space-y-20">
+      {/* <AnyCarousel opts={{loop: true}}>
+        <h1>test</h1>
+        <h1>welcome</h1>
+        <ImageBox image={showcaseProjects[0].coverImage} alt="test" classesWrapper="relative aspect-[16/9]" />
+      </AnyCarousel> */}
       {/* Header */}
       {title && <Header centered title={title} description={overview} />}
       {/* Showcase projects */}
