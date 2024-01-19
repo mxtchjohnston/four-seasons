@@ -58,17 +58,21 @@ export function CustomPortableText({
         return <TimelineSection timelines={items} />
       },
       carousel: ({ value }) => {
-        const { items } = value || {}
-        return (<AnyCarousel>
-          {items?.map((item) => {
-            const { image } = item
-            return (
-              <div className="aspect-[16/9]">
-                <ImageBox image={image} alt={image?.alt} />
-              </div>
-            )
-          })}
-        </AnyCarousel>)
+        const { images, title } = value || {}
+        console.log(value);
+        return (<>
+          <h1>{title}</h1>
+          <AnyCarousel opts={{loop: true}}>
+            {images.map((image, key) => (
+              <ImageBox
+                key={key}
+                image={image}
+                alt={image.alt}
+                classesWrapper="relative aspect-[16/9]"
+              />
+            ))}
+          </AnyCarousel>
+        </>)
       },
     },
   }
