@@ -1,17 +1,22 @@
-import React from 'react'
+"use client"
+import React from 'react';
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "@/components/ui/carousel"
+} from "@/components/ui/carousel";
 
-type Props = { children: React.ReactNode, opts?: object }
+import { EmblaOptionsType, EmblaPluginType } from 'embla-carousel';
+import { WheelGesturesPlugin } from 'embla-carousel-wheel-gestures';
+import Autoplay from 'embla-carousel-autoplay'
 
-function AnyCarousel({ children, opts }: Props) {
+type Props = { children: React.ReactNode, opts?: EmblaOptionsType, plugins?: EmblaPluginType[] };
+
+function AnyCarousel({ children, opts}: Props) {
   return (
-    <Carousel className="relative overflow-hidden" opts={opts}>
+    <Carousel className="relative overflow-hidden" opts={opts} plugins={[WheelGesturesPlugin(), Autoplay({delay: 5000})]}>
       <CarouselContent className="flex">
         {React.Children.map(children, (child) => (
           <CarouselItem className="min-w-full flex justify-center items-center">
