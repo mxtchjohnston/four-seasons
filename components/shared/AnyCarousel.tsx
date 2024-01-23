@@ -12,11 +12,11 @@ import { EmblaOptionsType, EmblaPluginType } from 'embla-carousel';
 import { WheelGesturesPlugin } from 'embla-carousel-wheel-gestures';
 import Autoplay from 'embla-carousel-autoplay'
 
-type Props = { children: React.ReactNode, opts?: EmblaOptionsType, plugins?: EmblaPluginType[] };
+type Props = { children: React.ReactNode, opts?: EmblaOptionsType, duration?: number };
 
-function AnyCarousel({ children, opts}: Props) {
+function AnyCarousel({ children, opts, duration = 5000}: Props) {
   return (
-    <Carousel className="relative overflow-hidden" opts={opts} plugins={[WheelGesturesPlugin(), Autoplay({delay: 5000})]}>
+    <Carousel className="relative overflow-hidden" opts={opts} plugins={[WheelGesturesPlugin(), Autoplay({delay: duration})]}>
       <CarouselContent className="flex">
         {React.Children.map(children, (child) => (
           <CarouselItem className="min-w-full flex justify-center items-center">

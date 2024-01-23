@@ -19,6 +19,13 @@ export default defineType({
       type: 'string',
     }),
     defineField({
+      name: 'duration',
+      title: 'Duration',
+      type: 'number', 
+      description: 'Duration of the slide in miliseconds.',
+      validation: (rule) => rule.required().positive(),
+    }),
+    defineField({
       name: 'images',
       title: 'Images',
       type: 'array',
@@ -36,6 +43,12 @@ export default defineType({
               type: 'string',
               description: 'Alternative text for screen readers.',
               validation: (rule) => rule.required(),
+            }),
+            defineField({
+              name: 'caption',
+              title: 'Caption',
+              type: 'string',
+              description: 'Caption text to display below the image.',
             }),
           ]
         })
@@ -55,5 +68,8 @@ export default defineType({
         media,
       };
     },
+  },
+  initialValue: {
+    duration: 5000,
   }
 });
