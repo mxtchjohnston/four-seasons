@@ -58,11 +58,11 @@ export function CustomPortableText({
         return <TimelineSection timelines={items} />
       },
       carousel: ({ value }) => {
-        const { images, title } = value || {}
+        const { images, title, duration} = value || {}
         console.log(value);
         return (<>
           <h1>{title}</h1>
-          <AnyCarousel opts={{loop: true}}>
+          <AnyCarousel opts={{loop: true}} duration={duration}>
             {images.map((image, key) => (
               <ImageBox
                 key={key}
