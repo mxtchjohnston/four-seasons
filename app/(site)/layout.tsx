@@ -24,7 +24,7 @@ export async function generateMetadata(): Promise<Metadata> {
     title: homePage?.title
       ? {
           template: `%s | ${homePage.title}`,
-          default: homePage.title || 'Personal website',
+          default: homePage.title || '',
         }
       : undefined,
     description: homePage?.overview
@@ -57,7 +57,6 @@ export default async function IndexRoute({
         <Suspense>
           <Footer />
         </Suspense>
-        {/* <IntroTemplate /> */}
       </div>
       {draftMode().isEnabled && <VisualEditing />}
     </>

@@ -7,6 +7,8 @@ import { resolveHref } from '@/sanity/lib/utils'
 import type { HomePagePayload } from '@/types'
 import AnyCarousel from '@/components/shared/AnyCarousel'
 import ImageBox from '@/components/shared/ImageBox'
+import Page from '../page/Page'
+import { CustomPortableText } from '@/components/shared/CustomPortableText'
 
 export interface HomePageProps {
   data: HomePagePayload | null
@@ -15,8 +17,9 @@ export interface HomePageProps {
 
 export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
   // Default to an empty object to allow previews on non-existent documents
-  const { overview = [], showcaseProjects = [], title = '' } = data ?? {} //nullish coalescing operator
-
+  const { overview = [], showcaseProjects = [], title = '', body = [] } = data ?? {} //nullish coalescing operator
+  console.log("data", data);
+  
   return (
     <div className="space-y-20">
       {/* <AnyCarousel opts={{loop: true}}>
@@ -49,6 +52,13 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
             )
           })}
         </div>
+      )}
+      {/* Body */}
+      {body && (
+        <CustomPortableText
+          paragraphClasses="font-serif max-w-3xl text-gray-600 text-xl"
+          value={body}
+        />
       )}
     </div>
   )
