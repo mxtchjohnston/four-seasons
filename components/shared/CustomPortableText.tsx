@@ -6,6 +6,7 @@ import ImageBox from '@/components/shared/ImageBox'
 import { TimelineSection } from '@/components/shared/TimelineSection'
 import AnyCarousel from './AnyCarousel'
 import { Key } from 'react'
+import CustomForm from './CustomForm'
 
 export function CustomPortableText({
   paragraphClasses,
@@ -75,6 +76,9 @@ export function CustomPortableText({
             ))}
           </AnyCarousel>
         </div>)
+      },
+      form: ({ value }) => {
+        return <CustomForm />
       },
     },
   }

@@ -118,6 +118,11 @@ export default defineType({
           name: 'carousel',
           title: 'Carousel',
         }),
+        defineField({
+          type: 'form',
+          name: 'form',
+          title: 'Form',
+        }),
       ],
     }),
   ],
