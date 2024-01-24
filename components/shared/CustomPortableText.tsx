@@ -5,6 +5,7 @@ import { Image } from 'sanity'
 import ImageBox from '@/components/shared/ImageBox'
 import { TimelineSection } from '@/components/shared/TimelineSection'
 import AnyCarousel from './AnyCarousel'
+import { Key } from 'react'
 
 export function CustomPortableText({
   paragraphClasses,
@@ -58,12 +59,14 @@ export function CustomPortableText({
         return <TimelineSection timelines={items} />
       },
       carousel: ({ value }) => {
-        const { images, title, duration} = value || {}
-        console.log(value);
-        return (<>
-          <h1>{title}</h1>
-          <AnyCarousel opts={{loop: true}} duration={duration}>
-            {images.map((image, key) => (
+        const { images, title, duration } = value || {}
+        //console.log(value);
+        return (<div>
+          <div className="font-extrabold tracking-tight md:text-3xl">
+            {title}
+          </div>
+          <AnyCarousel opts={{ loop: true }} duration={duration}>
+            {images.map((image: any, key: Key) => (
               <ImageBox
                 key={key}
                 image={image}
@@ -72,7 +75,7 @@ export function CustomPortableText({
               />
             ))}
           </AnyCarousel>
-        </>)
+        </div>)
       },
     },
   }

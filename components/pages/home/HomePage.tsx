@@ -48,7 +48,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
       {/* Body */}
       {body && (
         <CustomPortableText
-          paragraphClasses="font-serif max-w-3xl text-gray-600 text-xl"
+          paragraphClasses="font-serif text-gray-600 text-xl"
           value={body}
         />
       )}
