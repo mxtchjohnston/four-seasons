@@ -3,6 +3,7 @@
 import * as z from "zod"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
+import axios from "axios"
 
 import { Button } from "@/components/ui/button"
 import {
@@ -46,6 +47,8 @@ export default function ContactForm() {
   const onSubmit = (data: z.infer<typeof formSchema>) => {
     form.reset();
     console.log(data);
+    axios.post("/api/contact", data);
+    
   };
 
   return (
