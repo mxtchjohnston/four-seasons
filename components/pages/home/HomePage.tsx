@@ -5,9 +5,6 @@ import { ProjectListItem } from '@/components/pages/home/ProjectListItem'
 import { Header } from '@/components/shared/Header'
 import { resolveHref } from '@/sanity/lib/utils'
 import type { HomePagePayload } from '@/types'
-import AnyCarousel from '@/components/shared/AnyCarousel'
-import ImageBox from '@/components/shared/ImageBox'
-import Page from '../page/Page'
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
 
 export interface HomePageProps {
