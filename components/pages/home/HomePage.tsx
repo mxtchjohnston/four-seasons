@@ -18,15 +18,10 @@ export interface HomePageProps {
 export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
   // Default to an empty object to allow previews on non-existent documents
   const { overview = [], showcaseProjects = [], title = '', body = [] } = data ?? {} //nullish coalescing operator
-  console.log("data", data);
+  //console.log("data", data);
   
   return (
     <div className="space-y-20">
-      {/* <AnyCarousel opts={{loop: true}}>
-        <h1>test</h1>
-        <h1>welcome</h1>
-        <ImageBox image={showcaseProjects[0].coverImage} alt="test" classesWrapper="relative aspect-[16/9]" />
-      </AnyCarousel> */}
       {/* Header */}
       {title && <Header centered title={title} description={overview} />}
       {/* Showcase projects */}
