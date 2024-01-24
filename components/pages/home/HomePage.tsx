@@ -6,6 +6,7 @@ import { Header } from '@/components/shared/Header'
 import { resolveHref } from '@/sanity/lib/utils'
 import type { HomePagePayload } from '@/types'
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
+import CustomForm from '@/components/shared/CustomForm'
 
 export interface HomePageProps {
   data: HomePagePayload | null
@@ -21,6 +22,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
     <div className="space-y-20">
       {/* Header */}
       {title && <Header centered title={title} description={overview} />}
+      {/* <CustomForm /> */}
       {/* Showcase projects */}
       {showcaseProjects && showcaseProjects.length > 0 && (
         <div className="mx-auto max-w-[100rem] rounded-md border">

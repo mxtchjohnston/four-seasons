@@ -60,7 +60,6 @@ export function CustomPortableText({
       },
       carousel: ({ value }) => {
         const { images, title, duration } = value || {}
-        //console.log(value);
         return (<div>
           <div className="font-extrabold tracking-tight md:text-3xl">
             {title}
