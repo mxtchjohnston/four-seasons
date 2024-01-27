@@ -3,4 +3,3 @@ Disallow: /studio/
 Allow: /projects/
 Allow: /
 
-Sitemap: https://www.fourseasonslandscapingservices.ca/sitemap.xml
