@@ -1,21 +1,32 @@
-import send from '@/app/api/contact/transporter';
-import Mailgen from 'mailgen';
-import composeEmail from '@/app/api/contact/composeEmail';
+import { NextResponse } from 'next/server';
+import composeEmail from './composeEmail';
 
+export const runtime = 'edge';
+export const dynamic = 'force-dynamic';
+
+const RESEND_API_KEY = process.env.RESEND_API_KEY;
+const RESEND_API_URL = process.env.RESEND_API_URL ?? '';
+const EMAIL_TO = process.env.EMAIL_TO ?? '';
+const EMAIL_FROM = process.env.EMAIL_FROM ?? '';
 
 export async function POST(request: Request) {
   const data = await request.json();
-  
-  const emailAddress = process.env.NEXT_PRIVATE_EMAIL_CONTACT ?? '';
-  const emailString = `${emailAddress}, ${data.name} <${data.email}>}`;
-  const actionEmail = composeEmail(data);
+  const res = await fetch(RESEND_API_URL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${RESEND_API_KEY}`,
+    },
+    body: JSON.stringify({
+      from: EMAIL_FROM,
+      to: [EMAIL_TO],
+      subject: `New Quote Request from ${data.name}`,
+      html: composeEmail(data)
+    }),
+  });
 
-  send({
-    from: process.env.NEXT_PUBLIC_GMAIL_USER ?? '',
-    to: emailString,
-    subject: `${data.name} has requested a quote -- 4 Seasons Landscaping`,
-    html: actionEmail,
-  }).catch((err) => console.log(err));
-  return new Response('OK');
-};
-
+  if (res.ok) {
+    const data = await res.json();
+    return NextResponse.json(data);
+  }
+}

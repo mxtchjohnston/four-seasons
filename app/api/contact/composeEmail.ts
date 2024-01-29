@@ -1,5 +1,3 @@
-import Mailgen from 'mailgen';
-
 const composeEmail = (data: any) => {
 
   const actionEmail = 
