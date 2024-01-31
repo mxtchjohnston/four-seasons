@@ -17,6 +17,31 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
+import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert"
+import { useState } from "react"
+
+const SuccessAlert = () => (
+  <div>
+  <Alert variant="default">
+    <AlertTitle>Thanks for reaching out!</AlertTitle>
+    <AlertDescription>
+      We'll get back to you as soon as possible.
+    </AlertDescription>
+  </Alert>
+  </div>
+);
+
+const ErrorAlert = () => (
+  <div>
+  <Alert variant="destructive">
+    <AlertTitle>Something went wrong</AlertTitle>
+    <AlertDescription>
+      Please try again
+    </AlertDescription>
+  </Alert>
+  </div>
+);
+
 
 const formSchema = z.object({
   name: z.string().min(1, {
@@ -34,6 +59,9 @@ const formSchema = z.object({
 });
 
 export default function ContactForm() {
+  type Status = "hidden" | "success" | "error";
+  const [state, setState] = useState<Status>("hidden");
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -45,13 +73,19 @@ export default function ContactForm() {
   });
 
   const onSubmit = (data: z.infer<typeof formSchema>) => {
-    form.reset();
     console.log(data);
-    axios.post("/api/contact", data);
-    
+    axios.post("/api/contact", data)
+      .then(() => {
+        form.reset();
+        setState("success");
+      })
+      .catch(() => {
+        setState("error");
+      });
   };
 
   return (
+    <>
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-8'>
         <FormField
@@ -109,6 +143,11 @@ export default function ContactForm() {
         <Button type="submit">Submit</Button>
       </form>
     </Form>
+    <div className='mt-4'>
+    {state === "success" && <SuccessAlert />}
+    {state === "error" && <ErrorAlert />}
+    </div>
+    </>
   );
 };
 
