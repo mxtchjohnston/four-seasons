@@ -25,7 +25,7 @@ const SuccessAlert = () => (
   <Alert variant="default">
     <AlertTitle>Thanks for reaching out!</AlertTitle>
     <AlertDescription>
-      We'll get back to you as soon as possible.
+      We will get back to you as soon as possible.
     </AlertDescription>
   </Alert>
   </div>
