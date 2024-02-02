@@ -10,8 +10,8 @@ import { Key } from "react";
 export function AnyAccordion({value}) {
   const {title, items} = value;
   return (   
-    <>
-    <div className="font-extrabold tracking-tight md:text-3xl">
+    <div className=''>
+    <div className="font-extrabold tracking-tight md:text-3xl space-y-4 mt-4">
       {title}
     </div>
     <Accordion type='single' collapsible className="w-full">
@@ -24,6 +24,6 @@ export function AnyAccordion({value}) {
         </AccordionItem>
       ))}
     </Accordion>
-    </>
+    </div>
   )
 }
