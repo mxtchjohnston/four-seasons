@@ -31,7 +31,7 @@ export default defineType({
       of: [
         // Paragraphs
         defineArrayMember({
-          lists: [],
+          lists: [{ title: 'Bullet', value: 'bullet'}, { title: 'Number', value: 'number'}],
           marks: {
             annotations: [],
             decorators: [
@@ -45,7 +45,7 @@ export default defineType({
               },
             ],
           },
-          styles: [],
+          styles: [{title: 'Bullet', value: 'bullet'}, {title: 'Number', value: 'number'}],
           type: 'block',
         }),
       ],
@@ -74,6 +74,7 @@ export default defineType({
                     title: 'Url',
                   },
                 ],
+                validation: (rule) => rule.uri({ scheme: ['http', 'https', 'mailto', 'tel'] }),
               },
             ],
           },
