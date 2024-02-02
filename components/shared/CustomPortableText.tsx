@@ -7,12 +7,6 @@ import { TimelineSection } from '@/components/shared/TimelineSection'
 import AnyCarousel from './AnyCarousel'
 import { Key } from 'react'
 import CustomForm from './CustomForm'
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion"
 import { AnyAccordion } from './AnyAccordion'
 
 export function CustomPortableText({
@@ -50,6 +44,16 @@ export function CustomPortableText({
       },
     },
     types: {
+      // myImage: ({ value }) => {
+      //   console.log(value);
+      //   return (
+      //     <ImageBox
+      //       image={value.image}
+      //       alt={value.caption}
+      //       classesWrapper="relative aspect-[16/9]"
+      //     />
+      //   )
+      // },
       image: ({
         value,
       }: {
@@ -62,11 +66,11 @@ export function CustomPortableText({
               alt={value.alt}
               classesWrapper="relative aspect-[16/9]"
             />
-            {value?.caption && (
+            {/* {value?.caption && (
               <div className="font-sans text-sm text-gray-600">
                 {value.caption}
               </div>
-            )}
+            )} */}
           </div>
         )
       },

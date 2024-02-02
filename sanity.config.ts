@@ -21,6 +21,7 @@ import settings from '@/sanity/schemas/singletons/settings'
 import carousel from './sanity/schemas/objects/carousel'
 import form from './sanity/schemas/objects/form'
 import accordion from './sanity/schemas/objects/accordion'
+import image from './sanity/schemas/documents/image'
 
 const title =
   process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE ||
@@ -41,6 +42,7 @@ export default defineConfig({
       duration,
       page,
       project,
+      image,
       // Objects
       milestone,
       timeline,
