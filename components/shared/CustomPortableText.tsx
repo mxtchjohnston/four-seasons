@@ -13,6 +13,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
+import { AnyAccordion } from './AnyAccordion'
 
 export function CustomPortableText({
   paragraphClasses,
@@ -95,19 +96,7 @@ export function CustomPortableText({
         return <CustomForm />
       },
       accordion: ({ value }) => {
-        const {title, items} = value;
-        return (
-          <Accordion type='single' collapsible className="w-full">
-            {items.map((item: any, key: Key) => (
-              <AccordionItem key={key} value={item.trigger}>
-                <AccordionTrigger>{item.trigger}</AccordionTrigger>
-                <AccordionContent>
-                  <CustomPortableText value={item.body} />
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-        )
+        return <AnyAccordion value={value} />
       }
     },
   }
