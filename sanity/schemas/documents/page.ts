@@ -124,6 +124,11 @@ export default defineType({
           name: 'form',
           title: 'Form',
         }),
+        defineField({
+          type: 'accordion',
+          name: 'accordion',
+          title: 'Accordion',
+        }),
       ],
     }),
   ],

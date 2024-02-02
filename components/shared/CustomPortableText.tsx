@@ -7,6 +7,12 @@ import { TimelineSection } from '@/components/shared/TimelineSection'
 import AnyCarousel from './AnyCarousel'
 import { Key } from 'react'
 import CustomForm from './CustomForm'
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
 
 export function CustomPortableText({
   paragraphClasses,
@@ -32,6 +38,14 @@ export function CustomPortableText({
             {children}
           </a>
         )
+      },
+    },
+    list: {
+      bullet: ({ children }) => {
+        return <ul className="list-disc list-inside">{children}</ul>
+      },
+      number: ({ children }) => {
+        return <ol className="list-decimal list-inside">{children}</ol>
       },
     },
     types: {
@@ -80,6 +94,21 @@ export function CustomPortableText({
       form: ({ value }) => {
         return <CustomForm />
       },
+      accordion: ({ value }) => {
+        const {title, items} = value;
+        return (
+          <Accordion type='single' collapsible className="w-full">
+            {items.map((item: any, key: Key) => (
+              <AccordionItem key={key} value={item.trigger}>
+                <AccordionTrigger>{item.trigger}</AccordionTrigger>
+                <AccordionContent>
+                  <CustomPortableText value={item.body} />
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        )
+      }
     },
   }
 

@@ -20,6 +20,7 @@ import home from '@/sanity/schemas/singletons/home'
 import settings from '@/sanity/schemas/singletons/settings'
 import carousel from './sanity/schemas/objects/carousel'
 import form from './sanity/schemas/objects/form'
+import accordion from './sanity/schemas/objects/accordion'
 
 const title =
   process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE ||
@@ -45,6 +46,7 @@ export default defineConfig({
       timeline,
       carousel,
       form,
+      accordion
     ],
   },
   plugins: [
