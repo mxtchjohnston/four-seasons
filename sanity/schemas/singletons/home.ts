@@ -72,6 +72,23 @@ export default defineType({
       ],
     }),
     defineField({
+      type: 'image',
+      icon: ImageIcon,
+      name: 'heroImage',
+      title: 'Hero image',
+      description:
+        'This is the image that will appear at the top of your landing page.',
+      options: {
+        hotspot: true,
+      },
+      preview: {
+        select: {
+          imageUrl: 'asset.url',
+          title: 'caption',
+        },
+      },
+    }),
+    defineField({
       type: 'array',
       name: 'body',
       title: 'Body',

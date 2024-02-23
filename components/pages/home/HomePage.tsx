@@ -7,6 +7,7 @@ import { resolveHref } from '@/sanity/lib/utils'
 import type { HomePagePayload } from '@/types'
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
 import CustomForm from '@/components/shared/CustomForm'
+import ImageBox from '@/components/shared/ImageBox'
 
 export interface HomePageProps {
   data: HomePagePayload | null
@@ -15,11 +16,17 @@ export interface HomePageProps {
 
 export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
   // Default to an empty object to allow previews on non-existent documents
-  const { overview = [], showcaseProjects = [], title = '', body = [] } = data ?? {} //nullish coalescing operator
-  //console.log("data", data);
+  const { overview = [], showcaseProjects = [], title = '', body = [], heroImage = {} } = data ?? {} //nullish coalescing operator
+  console.log("data", data);
   
   return (
     <div className="space-y-20">
+      {/* Hero */}
+      <ImageBox
+        image={heroImage}
+        alt="Hero image"
+        
+      />
       {/* Header */}
       {title && <Header centered title={title} description={overview} />}
       {/* <CustomForm /> */}

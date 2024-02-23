@@ -12,6 +12,7 @@ export const homePageQuery = groq`
       tags,
       title,
     },
+    heroImage,
     body,
     title,
   }
