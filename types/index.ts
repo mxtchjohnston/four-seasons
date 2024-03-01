@@ -65,4 +65,6 @@ export interface SettingsPayload {
   footer?: PortableTextBlock[]
   menuItems?: MenuItem[]
   ogImage?: Image
+  fbLink?: string
+  igLink?: string
 }

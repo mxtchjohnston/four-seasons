@@ -69,6 +69,18 @@ export default defineType({
         hotspot: true,
       },
     }),
+    defineField({
+      name: 'fbLink',
+      title: 'Facebook Link',
+      type: 'url',
+      description: 'Link to your Facebook page.',
+    }),
+    defineField({
+      name: 'igLink',
+      title: 'Instagram Link',
+      type: 'url',
+      description: 'Link to your Instagram page.',
+    }),
   ],
   preview: {
     prepare() {

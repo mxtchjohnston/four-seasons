@@ -22,11 +22,10 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
   return (
     <div className="space-y-20">
       {/* Hero */}
-      <ImageBox
+      {/* <ImageBox
         image={heroImage}
         alt="Hero image"
-        
-      />
+      /> */}
       {/* Header */}
       {title && <Header centered title={title} description={overview} />}
       {/* <CustomForm /> */}

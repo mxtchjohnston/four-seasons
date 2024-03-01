@@ -52,5 +52,7 @@ export const settingsQuery = groq`
       title
     },
     ogImage,
+    fbLink,
+    igLink
   }
 `
