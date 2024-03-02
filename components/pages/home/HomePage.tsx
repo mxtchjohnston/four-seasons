@@ -30,6 +30,13 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
       {title && <Header centered title={title} description={overview} />}
       {/* <CustomForm /> */}
       {/* Showcase projects */}
+      {/* Body */}
+      {body && (
+        <CustomPortableText
+          paragraphClasses="font-serif text-gray-600 text-xl"
+          value={body}
+        />
+      )}
       {showcaseProjects && showcaseProjects.length > 0 && (
         <div className="mx-auto max-w-[100rem] rounded-md border">
           {showcaseProjects.map((project, key) => {
@@ -53,13 +60,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
           })}
         </div>
       )}
-      {/* Body */}
-      {body && (
-        <CustomPortableText
-          paragraphClasses="font-serif text-gray-600 text-xl"
-          value={body}
-        />
-      )}
+      
     </div>
   )
 }
