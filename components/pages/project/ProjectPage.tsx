@@ -86,7 +86,7 @@ export function ProjectPage({ data, encodeDataAttribute }: ProjectPageProps) {
 
             {/* Tags */}
             <div className="p-3 lg:p-4">
-              <div className="text-xs md:text-sm">Tags</div>
+              { tags && <div className="text-xs md:text-sm">Tags</div>}
               <div className="text-md flex flex-row flex-wrap md:text-lg">
                 {tags?.map((tag, key) => (
                   <div key={key} className="mr-1 break-words ">

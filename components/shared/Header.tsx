@@ -6,7 +6,7 @@ interface HeaderProps {
   title?: string
 }
 export function Header(props: HeaderProps) {
-  const { title, description, centered = false } = props
+  const { title, description, centered = true } = props
   if (!description && !title) {
     return null
   }

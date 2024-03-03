@@ -20,7 +20,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
   console.log("data", data);
   
   return (
-    <div className="space-y-20">
+    <div className="space-y-10">
       {/* Hero */}
       {/* <ImageBox
         image={heroImage}
