@@ -31,6 +31,15 @@ export default defineType({
         layout: 'tags',
       },
     }),
+    defineField({
+      type: 'array',
+      name: 'multipleImages',
+      title: 'Multiple Images',
+      of: [{type: 'image'}],
+      options: {
+        layout: 'grid',
+      }, 
+    }),
   ],
   preview: {
     select: {

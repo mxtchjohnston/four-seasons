@@ -148,7 +148,14 @@ export default defineType({
               description:
                 'Alternative text for screenreaders. Falls back on caption if not set',
             }),
+            
           ],
+          
+        }),
+        defineField({
+          type: 'carousel',
+          name: 'carousel',
+          title: 'Carousel',
         }),
       ],
     }),
