@@ -67,4 +67,5 @@ export interface SettingsPayload {
   ogImage?: Image
   fbLink?: string
   igLink?: string
+  gbLink?: string
 }

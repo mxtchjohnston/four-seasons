@@ -53,6 +53,7 @@ export const settingsQuery = groq`
     },
     ogImage,
     fbLink,
-    igLink
+    igLink,
+    gbLink
   }
 `

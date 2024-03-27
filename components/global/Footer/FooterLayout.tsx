@@ -1,7 +1,9 @@
 import type { PortableTextBlock } from '@portabletext/types'
 
+import Link from 'next/link'
+
 import { CustomPortableText } from '@/components//shared/CustomPortableText'
-import { faFacebook } from '@fortawesome/free-brands-svg-icons'
+import { faFacebook, faGoogle } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import type { SettingsPayload } from '@/types'
 
@@ -12,6 +14,7 @@ export default function Footer(props: FooterProps) {
   const { data } = props
   const footer = data?.footer || ([] as PortableTextBlock[])
   const fbLink = data?.fbLink || ''
+  const gbLink = data?.gbLink || ''
   return (
     <footer className="bottom-0 w-full bg-white py-12 text-center md:py-20">
       {footer && (
@@ -20,21 +23,21 @@ export default function Footer(props: FooterProps) {
           value={footer}
         />
       )}
-      <SocialIcons fbLink={fbLink}/>
+      <SocialIcons fbLink={fbLink} gbLink={gbLink}/>
     </footer>
   )
 }
 
-function SocialIcons ({fbLink}) {
+function SocialIcons ({fbLink, gbLink}) {
   return (
     <div className="flex justify-center space-x-4">
-      <a href={fbLink} target="_blank" rel="noopener noreferrer">
+      <Link href={fbLink} target="_blank" rel="noopener noreferrer">
         <FontAwesomeIcon icon={faFacebook} className='text-3xl'/>
-      </a>
-      {/*
-      <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
-        <img src="/images/instagram.svg" alt="Instagram" />
-      </a> */}
+      </Link>
+      <Link href={gbLink} target="_blank" rel="noopener noreferrer">
+        <FontAwesomeIcon icon={faGoogle} className='text-3xl'/>
+      </Link>
+      
     </div>
   )
 }

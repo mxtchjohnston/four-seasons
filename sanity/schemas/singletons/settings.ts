@@ -81,6 +81,12 @@ export default defineType({
       type: 'url',
       description: 'Link to your Instagram page.',
     }),
+    defineField({
+      name: 'gbLink',
+      title: 'Google Review Link',
+      type: 'url',
+      description: 'Link to Google Business review'
+    })
   ],
   preview: {
     prepare() {
