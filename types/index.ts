@@ -46,6 +46,11 @@ export interface PagePayload {
   slug?: string
 }
 
+export interface ImagesPayload {
+  url: string,
+  metadata: any
+}
+
 export interface ProjectPayload {
   client?: string
   coverImage?: Image

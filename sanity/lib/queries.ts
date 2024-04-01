@@ -57,3 +57,10 @@ export const settingsQuery = groq`
     gbLink
   }
 `
+
+export const photosQuery = groq`
+  *[_type == "sanity.imageAsset"] | order(_id) [$from...$to]{
+    url,
+    metadata,
+  }
+`

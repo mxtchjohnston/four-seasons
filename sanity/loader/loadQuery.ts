@@ -7,6 +7,7 @@ import { client } from '@/sanity/lib/client'
 import {
   homePageQuery,
   pagesBySlugQuery,
+  photosQuery,
   projectBySlugQuery,
   settingsQuery,
 } from '@/sanity/lib/queries'
@@ -15,6 +16,7 @@ import {
   HomePagePayload,
   PagePayload,
   ProjectPayload,
+  ImagesPayload,
   SettingsPayload,
 } from '@/types'
 
@@ -93,5 +95,12 @@ export function loadPage(slug: string) {
     pagesBySlugQuery,
     { slug },
     { next: { tags: [`page:${slug}`] } },
+  )
+}
+
+export function loadImages(from: number, to: number) {
+  return loadQuery<ImagesPayload | null>(
+    photosQuery,
+    {from, to}
   )
 }
