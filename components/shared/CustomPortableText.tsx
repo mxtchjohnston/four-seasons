@@ -8,7 +8,7 @@ import AnyCarousel from './AnyCarousel'
 import { Key } from 'react'
 import CustomForm from './CustomForm'
 import { AnyAccordion } from './AnyAccordion'
-import { Paginated } from './Paginated'
+import PhotoGrid from './PhotoGrid'
 
 export function CustomPortableText({
   paragraphClasses,
@@ -103,8 +103,8 @@ export function CustomPortableText({
       accordion: ({ value }) => {
         return <AnyAccordion value={value} />
       },
-      pagination: ({ value }) => {
-        return <Paginated value={value}/>
+      grid: ({ value }) => {
+        return <PhotoGrid value={value} />
       }
     },
   }

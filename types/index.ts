@@ -47,8 +47,8 @@ export interface PagePayload {
 }
 
 export interface ImagesPayload {
-  url: string,
-  metadata: any
+  title?: string,
+  images?: Array<{image: Image, alt?: string}>
 }
 
 export interface ProjectPayload {

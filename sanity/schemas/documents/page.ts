@@ -129,6 +129,11 @@ export default defineType({
           name: 'accordion',
           title: 'Accordion',
         }),
+        defineField({
+          type: 'grid',
+          name: 'grid',
+          title: 'Grid',
+        })
       ],
     }),
   ],

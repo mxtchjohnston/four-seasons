@@ -58,9 +58,11 @@ export const settingsQuery = groq`
   }
 `
 
-export const photosQuery = groq`
-  *[_type == "sanity.imageAsset"] | order(_id) [$from...$to]{
-    url,
-    metadata,
+export const photoGridQuery = groq`
+*[_type == "grid"] {
+  _id,
+  "images": images[] {
+    asset->,
+    alt
   }
-`
+}`

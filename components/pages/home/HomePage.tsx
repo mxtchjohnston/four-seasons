@@ -17,7 +17,7 @@ export interface HomePageProps {
 export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
   // Default to an empty object to allow previews on non-existent documents
   const { overview = [], showcaseProjects = [], title = '', body = [], heroImage = {} } = data ?? {} //nullish coalescing operator
-  console.log("data", data);
+  //console.log("data", data);
   
   return (
     <div className="space-y-10">

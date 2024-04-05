@@ -7,9 +7,9 @@ import { client } from '@/sanity/lib/client'
 import {
   homePageQuery,
   pagesBySlugQuery,
-  photosQuery,
   projectBySlugQuery,
   settingsQuery,
+  photoGridQuery,
 } from '@/sanity/lib/queries'
 import { token } from '@/sanity/lib/token'
 import {
@@ -98,9 +98,6 @@ export function loadPage(slug: string) {
   )
 }
 
-export function loadImages(from: number, to: number) {
-  return loadQuery<ImagesPayload | null>(
-    photosQuery,
-    {from, to}
-  )
+export function loadPhotos() {
+  return loadQuery<ImagesPayload>(photoGridQuery, {}, { next: { tags: ['photos'] } })
 }

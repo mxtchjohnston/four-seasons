@@ -22,6 +22,7 @@ import carousel from './sanity/schemas/objects/carousel'
 import form from './sanity/schemas/objects/form'
 import accordion from './sanity/schemas/objects/accordion'
 import image from './sanity/schemas/documents/image'
+import grid from './sanity/schemas/objects/grid'
 
 const title =
   process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE ||
@@ -48,7 +49,8 @@ export default defineConfig({
       timeline,
       carousel,
       form,
-      accordion
+      accordion,
+      grid,
     ],
   },
   plugins: [
