@@ -7,7 +7,6 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination"
-import { getImagesCount } from "@/sanity/loader/loadQuery"
 
 export function Paginated({ value }) {
   const perPage = value.perPage
