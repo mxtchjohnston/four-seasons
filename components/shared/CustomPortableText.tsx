@@ -9,6 +9,7 @@ import { Key } from 'react'
 import CustomForm from './CustomForm'
 import { AnyAccordion } from './AnyAccordion'
 import PhotoGrid from './PhotoGrid'
+import { loadPhotos } from '@/sanity/loader/loadQuery'
 
 export function CustomPortableText({
   paragraphClasses,

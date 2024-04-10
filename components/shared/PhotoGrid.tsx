@@ -3,6 +3,7 @@ import ImageBox from "./ImageBox";
 
 export default function PhotoGrid({value}) {
   console.log(value.images);
+  
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4 md:p-6">
       {value.images.map((image, key) => (
@@ -29,6 +30,13 @@ function ImageInGrid({image}) {
       height={1200}
       size="100%"
     />
+    // <Image
+    //   alt={image.alt || "Photo"}
+    //   className="aspect-square object-cover rounded-lg border border-gray-200"
+    //   height={600}
+    //   src={image.url}
+    //   width={600}
+    // />
   )
 }
 

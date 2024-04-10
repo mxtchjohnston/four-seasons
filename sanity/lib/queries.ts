@@ -59,10 +59,7 @@ export const settingsQuery = groq`
 `
 
 export const photoGridQuery = groq`
-*[_type == "grid"] {
-  _id,
-  "images": images[] {
-    asset->,
-    alt
-  }
+*[_type == 'sanity.imageAsset']{
+  metadata,
+  url,
 }`
