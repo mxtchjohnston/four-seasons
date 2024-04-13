@@ -1,12 +1,14 @@
-import Image from "next/image";
+
 import ImageBox from "./ImageBox";
+import { Image } from "sanity";
 
 export default function PhotoGrid({value}) {
-  console.log(value.images);
-  
+  //console.log(value.images);
+  const images : Array<{alt?: string, image: Image}> = value.images;
+  const subset = images;
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4 md:p-6">
-      {value.images.map((image, key) => (
+      {subset.map((image, key) => (
         <ImageInGrid key={key} image={image} />
       ))}
       {/* <img
@@ -20,7 +22,7 @@ export default function PhotoGrid({value}) {
   )
 }
 
-function ImageInGrid({image}) {
+function ImageInGrid({image}): React.ReactElement {
   return (
     <ImageBox
       alt={image.alt || "Photo"}
@@ -29,6 +31,7 @@ function ImageInGrid({image}) {
       width={1200}
       height={1200}
       size="100%"
+      
     />
     // <Image
     //   alt={image.alt || "Photo"}

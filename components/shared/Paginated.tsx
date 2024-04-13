@@ -7,19 +7,45 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination"
+import { useSearchParams } from "next/navigation"
 
-export function Paginated({ value }) {
-  const perPage = value.perPage
-  //const total = getImagesCount();
-  //const amountOfPages = 
+
+export function PageSelector({ amount, perPage }) {
+  const params = useSearchParams();
+  const page: number = Number(params.get('page'));
+  const totalPages: number = Math.ceil(amount / perPage);
+
   return (
     <>
-      <PageSelect />
+      <PageSelect currentPage={page} totalPages={totalPages}/>
     </>
   )
 }
 
-function PageSelect() {
+function PageSelect(currentPage: number, totalPages: number) {
+  
+  return (
+    <Pagination>
+      <PaginationContent>
+        <PaginationItem>
+          <PaginationPrevious href="#" />
+        </PaginationItem>
+
+        {Array.from({ length: totalPages }, (_, i) => (
+          <PaginationItem key={i}>
+            <PaginationLink href={`?page=${i}`}>{i}</PaginationLink>
+          </PaginationItem>
+        ))}
+
+        <PaginationItem>
+          <PaginationNext href="#" />
+        </PaginationItem>
+      </PaginationContent>
+    </Pagination>
+  )
+}
+
+function PageDemo() {
   return (
     <Pagination>
       <PaginationContent>

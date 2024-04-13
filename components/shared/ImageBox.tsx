@@ -24,6 +24,7 @@ export default function ImageBox({
   const imageUrl =
     image && urlForImage(image)?.height(height).width(width).fit('fill').url()
 
+  const blurUrl = urlForImage(image)?.blur(20).url()
   return (
     <div
       className={`w-full overflow-hidden rounded-[3px] bg-gray-50 ${classesWrapper}`}
@@ -38,6 +39,7 @@ export default function ImageBox({
           sizes={size}
           src={imageUrl}
           layout="responsive"
+          blurDataURL={blurUrl}
         />
       )}
     </div>
